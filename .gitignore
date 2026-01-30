@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+
+# Environment variables
+.env
+
+# Virtual environments
+backend/venv/
+
+# DB and models
+backend/data/
+backend/models/
+
+# Node
+frontend/node_modules/
+frontend/package-lock.json

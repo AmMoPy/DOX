@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSP via middleware (no meta tag needed) -->
+    <!-- Nonce will be injected by backend -->
+    <title>DOX</title>
+    <meta name="description" content="DOX - CPU-Bound RAG System: 40% accuracy on a good day!" />
+    <meta name="keywords" content="RAG, PDF Parsing, Vector Search, DOCX Python">
+    <meta name="author" content="@AmMoPy">
+     <!-- OpenGraph/Twitter meta tags -->
+    <meta property="og:title" content="DOX">
+    <meta property="og:description" content="DOX - CPU-Bound RAG System: 40% accuracy on a good day!">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ammopy/DOX/main/dox.jpg">
+    <meta property="og:url" content="https://ammopy.github.io/DOX/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DOX">
+    <meta name="twitter:description" content="DOX - CPU-Bound RAG System: 40% accuracy on a good day!">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/ammopy/DOX/main/dox.jpg">
+    <link rel="canonical" href="https://ammopy.github.io/DOX/">
+    <link rel="icon" type="image/x-icon/svg+xml" href="favicon.ico">
+
+    <!-- FOIC Prevention: Apply theme BEFORE any content renders -->
+    <!-- Nonce will be injected by backend during HTML serving -->
+    <script nonce="{{CSP_NONCE}}">
+      (function() {
+        try {
+          const stored = localStorage.getItem('dox_theme');
+          const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Main App -->
+    <div id="root"></div>
+
+    <!-- Scripts - Nonce injected by backend -->
+    <script type="module" src="/src/index.tsx" nonce="{{CSP_NONCE}}"></script>
+
+    <!-- GoatCounter Analytics -->
+    <script
+    data-goatcounter="https://ammopy.goatcounter.com/count"
+    async 
+    src="src/ext/count.js"
+    nonce="{{CSP_NONCE}}"
+    ></script>
+  </body>
+</html>

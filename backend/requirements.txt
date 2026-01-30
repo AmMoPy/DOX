@@ -1,0 +1,25 @@
+# CPU-PyTorch
+torch @ https://download.pytorch.org/whl/cpu/torch-2.8.0%2Bcpu-cp311-cp311-manylinux_2_28_x86_64.whl
+sentence-transformers==5.1.1
+pymupdf==1.26.4
+python-docx==1.2.0
+fastapi==0.128.0
+uvicorn[standard]==0.37.0
+chromadb==1.1.1
+sse-starlette==3.1.1
+python-multipart==0.0.20
+aiofiles==24.1.0
+python-dotenv==1.1.1
+# python-magic-bin # windows/mac
+python-magic==0.4.27
+openpyxl==3.1.5
+psutil==7.1.0
+pgvector==0.4.1
+asyncpg==0.30.0
+pydantic_settings==2.11.0
+gunicorn==23.0.0
+bleach==6.2.0
+bcrypt==5.0.0
+pyotp==2.9.0
+qrcode[pil]==8.2
+cryptography==46.0.3

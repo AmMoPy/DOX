@@ -1,0 +1,269 @@
+/**
+ * Global Styles with Tailwind CSS
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================== THEME VARIABLES ===================== */
+
+:root {
+  /* Dark Mode (Default) */
+  --bg-dark: #00000A;
+  --gradient-dark-1: #2F0743;
+  --gradient-dark-2: #00000A;
+  --gradient-dark-3: #00000A;
+  --gradient-dark-4: #360033;
+  --text-dark: #f5deb3; /* antiquewhite */
+  --text-secondary-dark: #d1d5db;
+  --border-dark: #374151;
+  --input-bg-dark: #1f2937;
+  --card-bg-dark: #111827;
+  --scrollbar-track-dark: #1f2937;
+  --scrollbar-thumb-dark: #4b5563;
+  --scrollbar-thumb-hover-dark: #6b7280;
+}
+
+:root:not(.dark) {
+  /* Light Mode */
+  --bg-light: #FFEFBA;
+  --gradient-light-1: #FFFFFF;
+  --gradient-light-2: #FFEFBA;
+  --text-light: #40280a;
+  --text-secondary-light: #6b7280;
+  --border-light: #e5e7eb;
+  --input-bg-light: #ffffff;
+  --card-bg-light: #ffffff;
+  --scrollbar-track-light: #f1f1f1;
+  --scrollbar-thumb-light: #888;
+  --scrollbar-thumb-hover-light: #555;
+}
+
+/* ===================== BASE STYLES ===================== */
+
+/* Dark mode animated gradient (default) */
+html.dark {
+  background: var(--bg-dark);
+  background: linear-gradient(
+    to top,
+    var(--gradient-dark-1),
+    var(--gradient-dark-2),
+    var(--gradient-dark-3),
+    var(--gradient-dark-4)
+  );
+  color: var(--text-dark);
+  background-size: 30% 120%;
+  transition: background 0.3s, color 0.3s;
+  animation: gradientWave 30s ease infinite;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+/* Dark mode with STATIC background - no animation */
+html.dark.dark-static {
+  background: var(--bg-dark);
+  background: linear-gradient(
+    to top,
+    var(--gradient-dark-2),
+    var(--gradient-dark-2),
+    var(--gradient-dark-2),
+    var(--gradient-dark-3),
+    var(--gradient-dark-4)
+  );
+  color: var(--text-dark);
+  background-size: 30% 100%;
+/*  background-position: 0% 10%;*/
+  animation: none;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+/* Light mode gradient */
+html.light,
+html:not(.dark) {
+  background: var(--bg-light);
+  background: linear-gradient(
+    to top,
+    var(--gradient-light-1),
+    var(--gradient-light-2)
+  );
+  color: var(--text-light);
+  animation: none;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+@keyframes gradientWave {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+}
+
+/* Base styles */
+body {
+  @apply antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* ===================== CUSTOM SCROLLBAR ===================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-light);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-dark);
+}
+
+/* ===================== FOCUS STATES ===================== */
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.dark *:focus-visible {
+  outline: 2px solid #60a5fa;
+}
+
+/* ===================== LOGO ANIMATION ===================== */
+
+/* Layout */
+.gradient-x {
+  animation: gradient-x 3s ease infinite;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center
+  }
+}
+
+
+/* Login Form */
+.quantum-entanglement {
+  position: inherit;
+  width: 2px;
+  height: 2px;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Arial Black', sans-serif;
+}
+
+.quantum-entanglement .letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+/*            mix-blend-mode: exclusion;*/
+    animation: quantum-entanglement 8s infinite ease-in-out;
+}
+
+.quantum-entanglement .letter:nth-child(1) {
+    color: #ff00ff;
+    animation-delay: 0s;
+}
+
+.quantum-entanglement .letter:nth-child(2) {
+    color: #00ffff;
+    animation-delay: 0.7s;
+}
+
+.quantum-entanglement .letter:nth-child(3) {
+    color: #ffff00;
+    animation-delay: 1.4s;
+}
+
+@keyframes quantum-entanglement {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
+        text-shadow: 0 0 2px currentColor;
+    }
+    20% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(0.6) rotate(180deg) translateX(60px);
+        text-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+    }
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1) rotate(360deg) translateY(60px);
+        text-shadow: 0 0 25px currentColor, 0 0 50px currentColor;
+    }
+    60% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.6) rotate(540deg) translateX(-60px);
+        text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+    }
+    80% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(2.1) rotate(720deg) translateY(-60px);
+        text-shadow: 0 0 12px currentColor, 0 0 24px currentColor;
+    }
+}
+
+
+/* ===================== TAILWIND UTILITIES ===================== */
+
+/* Custom animations */
+@layer utilities {
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+
+  /* Line clamp utility */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Code blocks */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
